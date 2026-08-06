@@ -1035,7 +1035,7 @@ export class WebHelper extends Helper {
             try {
                 await locator.clear();
                 await locator.fill(value);
-                const filledValue = await locator.inputValue().catch((=>null));
+                const filledValue = await locator.inputValue().catch(() => null);
 
                 if (filledValue === value) {
                     logInfo(`Text entered successfully: ${value}`);

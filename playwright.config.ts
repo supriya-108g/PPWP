@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+import { defineBddConfig } from 'playwright-bdd'
 import * as dotenv from "dotenv";
 import { Config } from "./config";
 import { on } from "events";
@@ -20,6 +21,13 @@ switch (process.env.NODE_ENV) {
     default:
         break;
 }
+
+const bddConfig = defineBddConfig({
+  features: 'features/*.feature',
+  steps: 'steps/*.ts',
+});
+
+
 export default defineConfig({
     testDir: "./tests",
     testMatch: ["**/*.ts", "**/*.js"],

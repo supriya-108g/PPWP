@@ -26,7 +26,7 @@ function registerProcessErrorHandlers(): void {
                 ` | Hint: An unhandled exception crashes the process. Check the stack trace below`,
             { stack: error.stack, frame }
         );
-    }
+    });
 }
 export default function globalSetup() {
     registerProcessErrorHandlers();
